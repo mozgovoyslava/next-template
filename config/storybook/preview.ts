@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/nextjs-vite';
 
 import '@/shared/styles/globals/globals.scss';
-import { htmlFontVariablesClassName } from '@/shared/styles/fonts';
+import { htmlFontVariablesClassName } from '@/shared/styles/fonts.ts';
 
 const preview: Preview = {
     parameters: {

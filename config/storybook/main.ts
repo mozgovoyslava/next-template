@@ -1,15 +1,8 @@
-import type { StorybookConfig } from '@storybook/nextjs-vite';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const SRC_DIR = path.resolve(__dirname, '../../src');
-const PUBLIC_DIR = path.resolve(__dirname, '../../public');
+﻿import type { StorybookConfig } from '@storybook/nextjs-vite';
+import { PUBLIC_DIR, SRC_DIR } from '../shared/paths.ts';
 
 const config: StorybookConfig = {
-    // пути относительно config/storybook
+    // Paths are relative to config/storybook.
     stories: ['../../src/**/*.mdx', '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 
     addons: ['@chromatic-com/storybook', '@storybook/addon-a11y', '@storybook/addon-docs'],
@@ -30,7 +23,7 @@ const config: StorybookConfig = {
             '@': SRC_DIR,
         };
 
-        // Sass loadPaths -> чтобы работало: @use 'shared/styles'
+        // Sass loadPaths -> to support: @use 'shared/styles'
         viteConfig.css = viteConfig.css ?? {};
         viteConfig.css.preprocessorOptions = viteConfig.css.preprocessorOptions ?? {};
         viteConfig.css.preprocessorOptions.scss = viteConfig.css.preprocessorOptions.scss ?? {};

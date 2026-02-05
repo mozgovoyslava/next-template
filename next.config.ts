@@ -1,7 +1,7 @@
 //TODO: decomposite build cfg
 
 import type { NextConfig } from 'next';
-import path from 'node:path';
+import { SRC_DIR } from './config/shared/paths';
 
 type AppMode = 'dev' | 'prod' | 'test';
 
@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
     },
 
     sassOptions: {
-        loadPaths: [path.join(__dirname, 'src')],
+        loadPaths: [SRC_DIR],
     },
 
     turbopack: {
