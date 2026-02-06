@@ -16,6 +16,7 @@ const getJestConfig = async () => {
         moduleNameMapper: {
             '^.+\\.svg$': '<rootDir>/config/jest/jestSvgMock.tsx',
             ...(nextConfig.moduleNameMapper ?? {}),
+            '^@/(.*)$': '<rootDir>/src/$1',
         },
     };
 };
