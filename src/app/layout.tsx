@@ -1,3 +1,4 @@
+import { Providers } from './providers';
 import { htmlFontVariablesClassName } from '@/shared/styles/fonts';
 import '@/shared/styles/globals/globals.scss';
 
@@ -8,7 +9,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={htmlFontVariablesClassName}>
-            <body>{children}</body>
+            <body>
+                <Providers>{children}</Providers>
+            </body>
         </html>
     );
 }

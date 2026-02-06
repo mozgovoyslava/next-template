@@ -1,0 +1,38 @@
+.root {
+    display: grid;
+    gap: 6px;
+    padding: 12px 14px;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.username {
+    color: #6b6b6b;
+    font-size: 13px;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    color: #333;
+    font-size: 13px;
+}
+
+.address {
+    color: #6b6b6b;
+    font-size: 12px;
+}

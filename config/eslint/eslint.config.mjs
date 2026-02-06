@@ -52,6 +52,13 @@ export default defineConfig([
             ...layerBoundaries,
         },
     },
+    // --- App-level store in shared (intentional exception) ---
+    {
+        files: ['src/shared/lib/store/store.ts'],
+        rules: {
+            'import/no-restricted-paths': 'off',
+        },
+    },
 
     // --- Jest + Testing Library rules for tests only ---
     {

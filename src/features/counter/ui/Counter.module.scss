@@ -1,0 +1,17 @@
+.root {
+    display: grid;
+    gap: 12px;
+    align-items: center;
+    justify-items: start;
+    padding: 16px 0;
+}
+
+.value {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
