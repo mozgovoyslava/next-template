@@ -1,14 +1,15 @@
 ﻿'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
+import Link from 'next/link';
 import { PostCard, useGetPostsQuery } from '@/entities/post';
+import { useInfiniteScroll } from '@/shared/lib/useInfiniteScroll';
 import css from './PostsList.module.scss';
 
 const PAGE_SIZE = 10;
 
 export const PostsList = () => {
     const [page, setPage] = useState(1);
-    const sentinelRef = useRef<HTMLDivElement | null>(null);
 
     const { data, isLoading, isFetching, isError } = useGetPostsQuery({
         page,
@@ -18,36 +19,18 @@ export const PostsList = () => {
     const posts = data ?? [];
     const hasMore = posts.length >= page * PAGE_SIZE;
 
-    useEffect(() => {
-        if (!hasMore) {
+    const handleLoadMore = useCallback(() => {
+        if (isFetching || isLoading || !hasMore) {
             return;
         }
 
-        const node = sentinelRef.current;
-        if (!node) {
-            return;
-        }
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const first = entries[0];
-                if (!first?.isIntersecting) {
-                    return;
-                }
-
-                if (!isFetching && !isLoading && hasMore) {
-                    setPage((prev) => prev + 1);
-                }
-            },
-            { rootMargin: '200px' },
-        );
-
-        observer.observe(node);
-
-        return () => {
-            observer.disconnect();
-        };
+        setPage((prev) => prev + 1);
     }, [hasMore, isFetching, isLoading]);
+
+    const sentinelRef = useInfiniteScroll({
+        onLoadMore: handleLoadMore,
+        isEnabled: hasMore,
+    });
 
     return (
         <section className={css.root} aria-label="Posts">
@@ -59,7 +42,9 @@ export const PostsList = () => {
 
             <div className={css.list}>
                 {posts.map((post) => (
-                    <PostCard key={post.id} post={post} />
+                    <Link key={post.id} className={css.link} href={`/posts/${post.id}`}>
+                        <PostCard post={post} />
+                    </Link>
                 ))}
             </div>
 
