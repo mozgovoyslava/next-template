@@ -14,8 +14,7 @@ export const makeStore = (preloadedState?: PreloadedState) => {
     return configureStore({
         reducer: rootReducer,
         preloadedState,
-        middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware().concat(baseApi.middleware),
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware),
     });
 };
 

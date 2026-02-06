@@ -14,9 +14,7 @@ export const renderWithProviders = (
     ui: ReactElement,
     { initialState, store = makeStore(initialState), renderOptions }: RenderWithProvidersOptions = {},
 ) => {
-    const Wrapper = ({ children }: { children: ReactNode }) => (
-        <Provider store={store}>{children}</Provider>
-    );
+    const Wrapper = ({ children }: { children: ReactNode }) => <Provider store={store}>{children}</Provider>;
 
     return {
         store,
