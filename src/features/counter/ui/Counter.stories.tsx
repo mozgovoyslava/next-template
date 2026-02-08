@@ -5,9 +5,7 @@ import { Counter } from './Counter';
 const meta = {
     title: 'features/Counter',
     component: Counter,
-    decorators: [
-        withStore({ counter: { value: 5 } }),
-    ],
+    decorators: [withStore({ counter: { value: 5 } })],
     tags: ['autodocs'],
 } satisfies Meta<typeof Counter>;
 

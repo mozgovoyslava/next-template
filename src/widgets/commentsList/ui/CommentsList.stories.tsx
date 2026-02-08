@@ -5,9 +5,7 @@ import { CommentsList } from './CommentsList';
 const meta = {
     title: 'widgets/CommentsList',
     component: CommentsList,
-    decorators: [
-        withStore(),
-    ],
+    decorators: [withStore()],
     tags: ['autodocs'],
     args: {
         postId: 1,

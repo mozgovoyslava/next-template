@@ -5,9 +5,7 @@ import { PostDetails } from './PostDetails';
 const meta = {
     title: 'widgets/PostDetails',
     component: PostDetails,
-    decorators: [
-        withStore(),
-    ],
+    decorators: [withStore()],
     tags: ['autodocs'],
     args: {
         postId: 1,

@@ -5,9 +5,7 @@ import { UsersList } from './UsersList';
 const meta = {
     title: 'widgets/UsersList',
     component: UsersList,
-    decorators: [
-        withStore(),
-    ],
+    decorators: [withStore()],
     tags: ['autodocs'],
 } satisfies Meta<typeof UsersList>;
 

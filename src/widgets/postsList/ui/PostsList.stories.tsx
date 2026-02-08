@@ -5,9 +5,7 @@ import { PostsList } from './PostsList';
 const meta = {
     title: 'widgets/PostsList',
     component: PostsList,
-    decorators: [
-        withStore(),
-    ],
+    decorators: [withStore()],
     tags: ['autodocs'],
 } satisfies Meta<typeof PostsList>;
 
